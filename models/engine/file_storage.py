@@ -1,61 +1,46 @@
 #!/usr/bin/python3
-"""
-Serializes instances to a JSON file and deserializes
-JSON file to instances
-"""
+""" This module contains a class FileStorage  that serializes instances to a...
+    ...JSON file and deserializes JSON file to instances """
+
 
 import json
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
+import uuid
+from datetime import datetime
+import models
+time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-class FileStorage:
-    """
-    Serializes instances to a JSON file and deserializes
-    JSON file to instances
-    """
+class FileStorage():
+    """ FileStorage Class """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """
-        returns the dictionary
-        """
-        return FileStorage.__objects
+        """ all method:  returns the dictionary __objects """
+        return (self.__objects)
 
     def new(self, obj):
-        """
-        sets in __objects the obj with key <obj class name>.id
-        """
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        FileStorage.__objects[key] = obj
+        """ new method: sets __objects with a key id """
+        if obj:
+            var_id = "{}.{}".format(type(obj).__name__, obj.id)
+            self.__objects[var_id] = obj
 
     def save(self):
-        """
-        serializes __objects to JSON file
-        """
-        new_dict = {}
-        for key, obj in FileStorage.__objects.items():
-            obj_dict = obj.to_dict()
-            new_dict[key] = obj_dict
-        with open(FileStorage.__file_path, "w") as fs:
-            json.dump(new_dict, fs)
+        """ save method: serializes __objects to the JSON file """
+        s_dict = {}
+        for var_id, var_obj in self.__objects.items():
+            s_dict[var_id] = var_obj.to_dict()
+
+        with open(self.__file_path, mode='w', encoding='utf-8') as f:
+            json.dump(s_dict, f)
 
     def reload(self):
-        """
-        deserializes the JSON file to __objects
-        """
+        """ reload method: deserializes the JSON file to __objects """
         try:
-            with open(FileStorage.__file_path, "r") as fs:
-                obj_dicts = json.load(fs)
-                for key, d in obj_dicts.items():
-                    class_name = d["__class__"]
-                    new_obj = eval(class_name)(**d)
-                    FileStorage.__objects[key] = new_obj
+            with open(self.__file_path, mode='r', encoding='utf-8') as f:
+                obj = json.load(f)
+            for key, value in obj.items():
+                name = models.ourclasses[value['__class__']](**value)
+                self.__objects[key] = name
         except FileNotFoundError:
-            return
+            pass

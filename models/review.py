@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-"""
-Class Review that inherits from BaseModel
-"""
+""" This module contains a class Review that inherits from BaseModel """
+
+
 from models.base_model import BaseModel
-from models.place import Place
-from models.user import User
+from models.engine import file_storage
 
 
 class Review(BaseModel):
-    """
-    Class Review that inherits from BaseModel
-    """
-    place_id = ""
-    user_id = ""
+    """ class Review that contains the public attributes:
+        place_id, user_id and text (all empty strings) """
+    place_id = ""  # task says will be: Place.id :later
+    user_id = ""  # task says will be: User.id :later
     text = ""

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""
-Class State that inherits from BaseModel
-"""
+""" This module contains a class State that inherits from BaseModel """
+
+
 from models.base_model import BaseModel
+from models.engine import file_storage
 
 
 class State(BaseModel):
-    """
-    Class State that inherits from BaseModel
-    """
+    """ class State that contains the public attribute:
+        name (an empty string) """
     name = ""

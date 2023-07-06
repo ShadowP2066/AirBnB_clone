@@ -1,13 +1,12 @@
 footer {
-    background-color: #00ff00;
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
     bottom: 0;
-    height: 60px;
+    right: 0;
     width: 100%;
-}
-
-footer > p {
-    width: 200px;
-    text-align: center;
-    margin: 20px auto;
+    height: 60px;
+    background-color: #00FF00;
 }

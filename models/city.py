@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""
-Class City that inherits from BaseModel
-"""
+""" This module contains a class City that inherits from BaseModel """
+
+
 from models.base_model import BaseModel
-from models.state import State
+from models.engine import file_storage
 
 
 class City(BaseModel):
-    """
-    Class City that inherits from BaseModel
-    """
+    """ class City that contains public attributes:
+        state_id and name (both empty strings) """
     state_id = ""
     name = ""
