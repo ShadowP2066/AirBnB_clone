@@ -1,21 +1,27 @@
 #!/usr/bin/python3
-""" This module contains a class Place that inherits from BaseModel """
-
-
+"""Defines the Place class."""
 from models.base_model import BaseModel
-from models.engine import file_storage
 
 
 class Place(BaseModel):
-    """ class Place that contains the public attributes:
-        city_id (empty str), user_id (empty str), name (empty str),
-        description (empty str), number_rooms (integer - 0),
-        number_bathrooms (integer - 0), max_guest (integer - 0),
-        price_by_night (integer - 0), latitude (float - 0.0),
-        longitude (float - 0.0), amenity_ids (list of strings - empty list)
+    """Represent a place.
+
+    Attributes:
+        city_id (str): The City id.
+        user_id (str): The User id.
+        name (str): The name of the place.
+        description (str): The description of the place.
+        number_rooms (int): The number of rooms of the place.
+        number_bathrooms (int): The number of bathrooms of the place.
+        max_guest (int): The maximum number of guests of the place.
+        price_by_night (int): The price by night of the place.
+        latitude (float): The latitude of the place.
+        longitude (float): The longitude of the place.
+        amenity_ids (list): A list of Amenity ids.
     """
-    city_id = ""  # task says will be: City.id :later
-    user_id = ""  # task says will be: User.id :later
+
+    city_id = ""
+    user_id = ""
     name = ""
     description = ""
     number_rooms = 0

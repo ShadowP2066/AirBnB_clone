@@ -1,8 +1,9 @@
-body {
-    margin: 0;
-    padding: 0;
-}
+/*
+ * === Global style ===
+ */
 
-p {
-    text-align: center;
+/* Body style */
+body {
+  margin: 0;
+  padding: 0;
 }

@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-""" This module contains a class User that inherits from BaseModel """
-
-
+"""Defines the User class."""
 from models.base_model import BaseModel
-from models.engine import file_storage
 
 
 class User(BaseModel):
-    """ class User that contains public attributes: email, password,
-        first_name and last_name (all are empty strings) """
+    """Represent a User.
+
+    Attributes:
+        email (str): The email of the user.
+        password (str): The password of the user.
+        first_name (str): The first name of the user.
+        last_name (str): The last name of the user.
+    """
+
     email = ""
     password = ""
     first_name = ""
