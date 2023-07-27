@@ -1,25 +1,17 @@
 #!/usr/bin/python3
-"""Defines the Place class."""
+"""
+Class Place that inherits from BaseModel
+"""
 from models.base_model import BaseModel
+from models.city import City
+from models.user import User
+from models.amenity import Amenity
 
 
 class Place(BaseModel):
-    """Represent a place.
-
-    Attributes:
-        city_id (str): The City id.
-        user_id (str): The User id.
-        name (str): The name of the place.
-        description (str): The description of the place.
-        number_rooms (int): The number of rooms of the place.
-        number_bathrooms (int): The number of bathrooms of the place.
-        max_guest (int): The maximum number of guests of the place.
-        price_by_night (int): The price by night of the place.
-        latitude (float): The latitude of the place.
-        longitude (float): The longitude of the place.
-        amenity_ids (list): A list of Amenity ids.
     """
-
+    Class Place that inherits from BaseModel
+    """
     city_id = ""
     user_id = ""
     name = ""
@@ -31,3 +23,22 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
+
+    def __setattr__(self, attr, value):
+        """
+        Lets Place handle type casting
+        """
+        if attr == "number_rooms" and type(value) is str:
+            self.number_rooms = int(value)
+        elif attr == "number_bathrooms" and type(value) is str:
+            self.number_bathrooms = int(value)
+        elif attr == "max_guest" and type(value) is str:
+            self.max_guest = int(value)
+        elif attr == "price_by_night" and type(value) is str:
+            self.price_by_night = int(value)
+        elif attr == "latitude" and type(value) is str:
+            self.latitude = float(value)
+        elif attr == "longitude" and type(value) is str:
+            self.longitude = float(value)
+        else:
+            super().__setattr__(attr, value)

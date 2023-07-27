@@ -1,118 +1,103 @@
-/*
- * === Filters class style ===
- */
-
-/* Filters style */
+/* The entire filters section */
 .filters {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  display: inline-block;
-  height: 70px;
-  width: 100%;
+    position: relative;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
 }
 
-/* Search button style */
-.filters button {
-  background: #ff5a5f;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  float: right;
-  font-size: 18px;
-  height: 48px;
-  margin: 12px 30px;
-  width: 20%;
+/* The filters themselves*/
+.filters div {
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    width: 25%;
+    height: 100%;
 }
 
-/* Search button hover opacity */
-.filters button:hover {
-  background-color: rgba(255, 90, 95, .9);
+/* The locations filter */
+.locations {
+    border-right: 1px solid #dddddd;
 }
 
-/* Locations and amenities style */
-.filters .locations,
-.filters .amenities {
-  display: inline-block;
-  height: 100%;
-  position: relative;
-  width: 25%;
+/* The filter titles */
+.filters div h3 {
+    position: absolute;
+    font-weight: 600;
+    top: 10px;
+    left: 50px;
+    margin: 0;
 }
 
-/* Locations border */
-.filters .locations {
-  border-right: 1px solid #ddd;
+/* The filter subtitles */
+.filters div h4 {
+    position: relative;
+    font-weight: 400;
+    top: 35px;
+    left: 50px;
+    margin: 0;
 }
 
-/* Locations and amenities hover opacity */
-.filters .locations:hover,
-.filters .amenities:hover {
-  background-color: #fafafa;
+/* The search button */
+.filters > button {
+    font-size: 18px;
+    background-color: #ff5a5f;
+    color: white;
+    height: 48px;
+    width: 20%;
+    border: 0px;
+    border-radius: 4px;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    text-align: center;
 }
 
-/* Locations and amenities popover menu */
-.filters .popover {
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  display: none;
-  position: absolute;
-  width: 100%;
+.filters > button:hover {
+    opacity: 0.9;
 }
 
-/* Locations and amenities popover hover */
-.filters .locations:hover .popover,
-.filters .amenities:hover .popover {
-  display: block;
+/* Popover */
+.popover {
+    background-color: #fafafa;
+    position: absolute;
+    width: 100%;
+    padding: 25px;
+    border: 1px solid #dddddd;
+    top: 100%;
+    margin: 0;
+    left: 0;
+    display: none;
 }
 
-/* Locations list style */
-.filters .locations ul {
-  padding: 6px 0 6px 0;
+.locations .popover {
+    padding: 10px 30px 40px 30px;
 }
 
-/* Locations list element margin */
-.filters .locations li {
-  margin: 0 auto 6px 3em;
+.amenities .popover {
+    left: -3.5px;
 }
 
-/* Amenities list element margin */
-.filters .amenities li {
-  margin: 12px auto 12px 30px;
+/* Takes out bullets for popover and children lists */
+.popover, .popover ul {
+    list-style: none;
 }
 
-/*
- * --- Filters header style ---
- */
-
-/* Header box sizing */
-.filters h2,
-.filters h3,
-.filters h4 {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+.popover h2 {
+    font-size: 16px;
 }
 
-/* Header 2 style */
-.filters h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 12px auto 0 30px;
+.filters div:hover > .popover {
+    display: block;
 }
 
-/* Header 3 style */
-.filters h3 {
-  font-size: 1.17em;
-  font-weight: 600;
-  height: 50%;
-  padding: 15.5px 0 0 30px;
+.city {
+    position: relative;
+    right: 20px;
+    padding-bottom: 10px;
 }
 
-/* Header 4 style */
-.filters h4 {
-  font-size: 14px;
-  font-weight: 400;
-  height: 50%;
-  padding: 4.5px 0 12px 30px;
+.amenity {
+    padding-bottom: 10px;
 }
